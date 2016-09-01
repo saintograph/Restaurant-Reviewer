@@ -17,6 +17,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
+    
   end
 
   # GET /reviews/1/edit
@@ -33,6 +34,7 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.save
         format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        format.js   { }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
@@ -72,7 +74,13 @@ class ReviewsController < ApplicationController
     end
     
     def set_restaurant
-      @restaurant = Restaurant.find(params[:id])
+      @restaurant = Restaurant.find(params[:restaurant_id])
+    end
+
+    def check_user
+      unless (@review.user == current_user) || (current_user.admin?)
+        redirect_to root_url, alert: "Sorry, this review belongs to someone else"
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

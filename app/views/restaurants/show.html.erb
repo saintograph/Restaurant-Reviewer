@@ -1,35 +1,95 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @restaurant.address %>
-</p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @restaurant.phone %>
-</p>
 
-<p>
-  <strong>Website:</strong>
-  <%= @restaurant.website %>
-</p>
+<section class="image-square left">
+    <div class="col-md-6 image">
+        <div class="background-image-holder">
+            <img alt="image" class="background-image" src="img/small1.jpg">
+        </div>
+    </div>
+    <div class="col-md-6 col-md-offset-1 content">
+        <h1><%= @restaurant.name %></h1>
+        <p class="mb0"><strong>Address:</strong> <%= @restaurant.address %></p>
+        <p class="mb0"><strong>Phone:</strong> <%= @restaurant.phone %></p>
+        <p class="mb0"><strong>Website:</strong> <%= @restaurant.website %></p>
+        <p class="mb0"><strong>Average rating:</strong> <%= @restaurant.website %></p>
+    </div>
+</section>
+<section class="bg-primary">
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 text-right text-left-xs col-sm-5">
+      <h1 class="uppercase mb24 bold italic">REVIEWS</h1>
+      <hr class="visible-xs">
+    </div>
+    <div class="col-md-6 col-sm-7">
+        <% if @reviews.blank? %>
+        <h3>Be the first to write a review for <%= @restaurant.name %></h3>
+        <% else %>
+            <% @reviews.each do |review| %>
+                <div class="my-rating" data-rating= <%= review.rating %> ></div>
+                <p><%= review.comment %></p>
+                <p><%= review.user.email %></p>
+            <% end %>
+        <% end %>
+        <%= link_to "Write a review", new_restaurant_review_path(@restaurant) %>
+        <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+        <%= link_to 'Back', restaurants_path %>
+    </div>
+  </div>
+</div>
+</section>
 
-<%= link_to "Write a review", new_restaurant_review_path(@restaurant) %>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-5">
+                <h4 class="uppercase">Leave a review</h4>
+                <p>
+                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
+                </p>
+                <hr>
+                <p>
+                    438 Marine Parade
+                    <br> Elwood, Victoria
+                    <br> P.O Box 3184
+                </p>
+                <hr>
+                <p>
+                    <strong>E:</strong> hello@foundry.net
+                    <br>
+                    <strong>P:</strong> +614 3948 2726
+                    <br>
+                </p>
+            </div>
+            <div class="col-sm-6 col-md-5 col-md-offset-1">
+                <form class="form-email" data-success="Thanks for your submission, we will be in touch shortly." data-error="Please fill all fields correctly.">
+                    <input type="text" class="validate-required" name="name" placeholder="Your Name">
+                    <input type="text" class="validate-required validate-email" name="email" placeholder="Email Address">
+                    <textarea class="validate-required" name="message" rows="4" placeholder="Message"></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
-<% if @reviews.blank? %>
-  <h3>Be the first to write a review</h3>
-<% else %>
-  <% @reviews.each do |review| %>
-    <p><%= review.rating %></p>
-    <p><%= review.comment %></p>
-  <% end %>
-<% end %>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+
+
+
+
+<script>
+    $(".my-rating").starRating({
+        readOnly: true,
+        strokeColor: '#894A00',
+        strokeWidth: 10,
+        starSize: 25,
+        emptyColor: 'lightgray',
+        hoverColor: 'salmon',
+        activeColor: 'crimson',
+        useGradient: false
+    });
+</script>
