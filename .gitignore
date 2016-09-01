@@ -19,3 +19,10 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore Node modules
+node_modules/
+
+# Ignore pre-compiled js
+./client
+

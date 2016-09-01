@@ -14,7 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap.min
-//= require parallax
-//= require scripts
 //= require jquery.star-rating-svg
 //= require_tree .
