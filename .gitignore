@@ -26,3 +26,4 @@ node_modules/
 # Ignore pre-compiled js
 ./client
 
+/config/cloudinary.yml

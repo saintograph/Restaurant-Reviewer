@@ -1,33 +1,44 @@
-
-<p id="notice"><%= notice %></p>
-<h1>Restaurants</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Phone</th>
-      <th>Website</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @restaurants.each do |restaurant| %>
-      <tr>
-        <td><%= restaurant.name %></td>
-        <td><%= restaurant.address %></td>
-        <td><%= restaurant.phone %></td>
-        <td><%= restaurant.website %></td>
-        <td><%= link_to 'Show', restaurant %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Restaurant', new_restaurant_path %>
+<div class="page-homepage">
+<%= render 'layouts/hero' %>
+<section id="featured" class="block equal-height">
+  <div class="container">
+    <header><h2>Recently Updated</h2></header>
+    <div class="row">
+      <% @recently_posted.each do |restaurant| %>
+        <div class="col-md-3 col-sm-3">
+          <div class="item">
+            <div class="image">
+                <%= link_to(restaurant) do %>
+                  <div class="overlay">
+                      <div class="inner">
+                          <div class="content">
+                              <h4>Description</h4>
+                              <p><%= restaurant.description %></p>
+                          </div>
+                      </div>
+                  </div>
+                  <%= image_tag('2.jpg') %>
+                <% end %>
+              </div>
+              <div class="wrapper">
+                  <%= link_to(restaurant) do %><h3><%= restaurant.name %></h3><% end %>
+                  <figure><%= restaurant.address %></figure>
+                  <div class="info">
+                      <div class="type">
+                          <i><%= image_tag('restaurant.png') %></i>
+                          <span>Restaurant</span>
+                      </div>
+                  <div class="rating" data-rating="4"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>  
+    </div>
+  </div>
+  <div class="background opacity-5">
+      <%= image_tag('bg2.jpg') %>
+  </div>
+</section>
+<%= render 'layouts/popular' %>
+</div>

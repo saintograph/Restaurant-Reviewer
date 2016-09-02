@@ -51,3 +51,5 @@ gem 'devise'
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
 gem 'guard-livereload', '~> 2.5', require: false
+gem 'carrierwave'
+gem 'cloudinary'

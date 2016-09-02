@@ -5,6 +5,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants.json
   def index
     @restaurants = Restaurant.all
+    @recently_posted = Restaurant.order("created_at").limit(4)
   end
 
   # GET /restaurants/1
