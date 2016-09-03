@@ -8,16 +8,27 @@
         
         <nav class="navigation-items">
                 <div class="wrapper">
-                <ul class="main-navigation navigation-top-header"></ul>
+                <ul class="main-navigation navigation-top-header">
+                        <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" style="float: left;" data-toggle="dropdown" aria-haspopup="true">
+                                Cuisine  <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu" aria-expanded="false">
+                                        <li><a href="#"><i><%= image_tag('restaurant.png', height: '15px') %></i>Restaurant</a></li>
+                                        <li><a href="#"><i><%= image_tag('restaurant_steakhouse.png', height: '15px') %></i>Steak House</a></li>
+                                        <li><a href="#"><i><%= image_tag('japanese-food.png', height: '15px') %></i>Sushi Bar</a></li>
+                                        <li><a href="#"><i><%= image_tag('barbecue.png', height: '15px') %></i>BBQ Restaurant</a></li>
+                                </ul>
+                        </div>
+                </ul>
                 <ul class="user-area">
                         <% if user_signed_in? %>
-                                <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>        
+                                <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>        
                         <% else %>
-                                <%= link_to 'Sign In', new_user_session_path  %>  
+                                <li><%= link_to 'Sign In', new_user_session_path, style: "margin-right: 15px; font-size: 14px;"  %></li>
                         <% end %>
-                        <%= link_to "<strong>Register</strong>".html_safe , new_user_registration_path  %>
+                        <%= link_to "<strong>Register</strong>".html_safe , new_user_registration_path, class: "btn btn-default", style: "font-size: 14px;"  %>
                 </ul>
-
                 </div>
         </nav>
         </div>
