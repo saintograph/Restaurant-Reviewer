@@ -17,7 +17,6 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
-    
   end
 
   # GET /reviews/1/edit
@@ -34,7 +33,6 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.save
         format.html { redirect_to @review, notice: 'Review was successfully created.' }
-        format.js   { }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }

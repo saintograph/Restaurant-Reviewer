@@ -1,6 +1,6 @@
 var React = require('react');
 
-const CommentForm = React.createClass({
+const ReviewForm = React.createClass({
     render: function() {
         return (
             <div>
@@ -12,15 +12,15 @@ const CommentForm = React.createClass({
                         <div className="row">
                             <div className="col-md-8">
                                 <div className="form-group">
-                                    <label for="form-review-name">Name</label>
+                                    <label htmlFor="form-review-name">Name</label>
                                     <input type="text" className="form-control" id="form-review-name" name="form-review-name" required=""/>
                                 </div>
                                 <div className="form-group">
-                                    <label for="form-review-email">Email</label>
+                                    <label htmlFor="form-review-email">Email</label>
                                     <input type="email" className="form-control" id="form-review-email" name="form-review-email" required=""/>
                                 </div>
                                 <div className="form-group">
-                                    <label for="form-review-message">Message</label>
+                                    <label htmlFor="form-review-message">Message</label>
                                     <textarea className="form-control" id="form-review-message" name="form-review-message"  rows="3" required=""></textarea>
                                 </div>
                                 <div className="form-group">
@@ -45,4 +45,4 @@ const CommentForm = React.createClass({
     }
 });
 
-module.exports =  CommentForm;
+module.exports =  ReviewForm;

@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   resources :restaurants do
     resources :reviews, except: [:show, :index]
   end  
+  namespace :api do
+    namespace :v1 do
+      resources :restaurants do
+        resources :reviews
+      end
+    end
+  end
   root 'restaurants#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

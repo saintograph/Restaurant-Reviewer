@@ -53,3 +53,4 @@ gem 'rails_admin', '>= 1.0.0.rc'
 gem 'guard-livereload', '~> 2.5', require: false
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'responders'
