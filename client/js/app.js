@@ -4,10 +4,35 @@ var ReviewForm = require('./components/review_form');
 var Reviews = require('./components/reviews');
 
 var MainInterface = React.createClass({
+    
+  getInitialState: function() {
+      return({
+          reviews: []
+      })
+  },
+  
+  componentDidMount: function() {
+      fetch("/restaurants/" + $('#restaurant_id').val() + "/reviews.json")
+          .then( (response) => {
+              return response.json() })   
+                  .then( (json) => {
+                      this.setState({ reviews: json });
+                  });
+  },
+  
   render: function() {
+    var reviewsState = this.state.reviews;
+    reviewsState = reviewsState.map(function(review, index) {  
+      return (
+          <Reviews key = { index }
+           singleReview = { review }
+           />
+      )
+    }.bind(this));
+    
     return (
       <div>
-        <Reviews />
+        { reviewsState }
         <ReviewForm />
       </div>
     )

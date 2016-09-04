@@ -2,37 +2,10 @@ var React = require('react');
 
 const Reviews = React.createClass({
     
-    getInitialState: function() {
-        return({
-            reviews: []
-        })
-    },
-    
-    componentDidMount: function() {
-        fetch("/api/v1/restaurants/" + "restaurant_id" + "/reviews.json")
-            .then( (response) => {
-                return response.json() })   
-                    .then( (json) => {
-                        this.setState({ reviews: json });
-                    });
-    },
-    
     render: function() {
-        
-        var reviews = this.state.reviews.map((review) => { 
-            return ( 
-                <div key={review.id}> 
-                    <h3>{review.comment}</h3> 
-                    <p>{review.rating}</p> 
-                </div> 
-                ) 
-            }); 
             
         return (
             <div>
-                <div>
-                    { reviews }
-                </div> 
                 <section className="block" id="reviews">
                     <header className="clearfix">
                         <h2 className="pull-left">Reviews</h2>
@@ -46,17 +19,14 @@ const Reviews = React.createClass({
                         <article className="review">
                             <div className="wrapper">
                                 <h5>Catherine Brown</h5>
-                                <div>Reviewed on: <p className="date">12.05.2014</p></div>
-                                <figure className="rating big color" data-rating="4"></figure>
+                                <div>Reviewed on: <p className="date">{ this.props.singleReview.created_at }</p></div>
+                                <figure className="rating big color" data-rating="4">{this.props.singleReview.rating}</figure>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Nulla vestibulum, sem ut sollicitudin consectetur, augue diam ornare massa,
-                                    ac vehicula leo turpis eget purus. Nunc pellentesque vestibulum mauris,
-                                    eget suscipit mauris imperdiet vel. Nulla et massa metus.
+                                    {this.props.singleReview.comment}
                                 </p>
                             </div>
                         </article>
-                    </section>
+                    </section> 
                 </section>
             </div>
         )
