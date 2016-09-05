@@ -1,40 +1,31 @@
 <p id="notice"><%= notice %></p>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-					
-			  <section class="cover fullscreen image-bg overlay">
-		        <div class="background-image-holder">
-		            <img alt="image" class="background-image" src="img/j0t22xx7-1.jpg">
-		        </div>
-		        <div class="container v-align-transform">
-		            <div class="row">
-		                <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
-		                    <div class="feature bordered text-center">
-		                        <h3 class="uppercase">LOGIN</h3>
-		                        <p>
-		                            We'll be launching our new site in the coming weeks. Hit the form below to get notified as we launch. Thanks for your interest!
-		                        </p>
-		                        <form class="halves form-newsletter" data-success="Thanks for your submission, we will be in touch shortly." data-error="Please fill all fields correctly.">
-									<%= f.label :email %><br />
-									<%= f.email_field :email, autofocus: true %>
-
-									<%= f.label :password %><br />
-									<%= f.password_field :password, autocomplete: "off" %>
-
-									<% if devise_mapping.rememberable? -%>
-										<%= f.check_box :remember_me %>
-										<%= f.label :remember_me %>
-									<% end -%>
-									
-									<%= f.submit "Log in", class: "mb16" %>
-		                            <span>*We won't share your email with third parties.</span>
-									<%= render "devise/shared/links" %>
-		                        </form>
-		                    </div>
-		                </div>
-		            </div>
-		        </div>
-		    </section>
+	<section class="container">
+		<div class="block">
+			<div class="row">
+				<div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+					<header>
+						<h1 class="page-title">Sign In</h1>
+					</header>
+					<hr>
+					<form role="form" id="form-sign-in-account" method="post" action="http://themestarz.net/html/spotter/sign-in.html?">
+						<div class="form-group">
+							<%= f.label :email, for: "form-sign-in-email" %>
+							<%= f.email_field :email, autofocus: true, class:"form-control", id: "form-sign-in-email", name: "form-sign-in-email", required: true %>
+						</div>
+						<div class="form-group">
+							<%= f.label :password, for: "form-sign-in-password" %>
+							<%= f.password_field :password, autocomplete: "off", class: "form-control", id: "form-sign-in-password", name: "form-sign-in-password", required: true %>
+						</div>
+						<div class="form-group clearfix">
+							<%= f.submit "Sign In", class: "btn pull-right btn-default", id: "account-submit"  %>
+							<%= render "devise/shared/links" %>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
 <% end %>
 

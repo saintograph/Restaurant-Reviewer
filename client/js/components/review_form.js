@@ -2,41 +2,46 @@ var React = require('react');
 
 const ReviewForm = React.createClass({
     
+    handleClick: function(event) {
+      // var userId = $('#user_id').val();
+      event.preventDefault();
+      $.ajax({
+            url: '/api/v1/restaurants/' + document.getElementById('restaurant_id').value + '/reviews',
+            type: 'POST',
+            data: {
+                newReview: { 
+                    rating : this.refs.rating.value,
+                    comment : this.refs.review.value,
+                    restaurant_id : document.getElementById('restaurant_id').value,
+                    user_id : document.getElementById('user_id').value
+                }},
+            success: (newReview) => {
+               this.props.handleSubmit(newReview);         
+            }
+      }); 
+    },
+    
     render: function() {
         return (
             <div>
-                <section id="write-review">
+                <section>
                     <header>
                         <h2>Leave a Review</h2>
                     </header>
                     <form id="form-review" role="form" method="post" className="background-color-white">
                         <div className="row">
-                            <div className="col-md-8">
+                            <div className="col-md-12">
                                 <div className="form-group">
-                                    <label htmlFor="form-review-name">Name</label>
-                                    <input type="text" className="form-control" id="form-review-name" name="form-review-name" required=""/>
+                                    <label htmlFor="form-review-email">Rating</label>
+                                    <input ref="rating" type="number" className="form-control" id="form-review-email" name="form-review-email" required=""/>
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="form-review-email">Email</label>
-                                    <input type="email" className="form-control" id="form-review-email" name="form-review-email" required=""/>
+                                    <label htmlFor="form-review-message">Review</label>
+                                    <textarea ref="review" className="form-control" id="form-review-message" name="form-review-message"  rows="3" required=""></textarea>
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="form-review-message">Message</label>
-                                    <textarea className="form-control" id="form-review-message" name="form-review-message"  rows="3" required=""></textarea>
+                                    <button type="submit" className="btn btn-default" onClick={ this.handleClick }>Submit Review</button>
                                 </div>
-                                <div className="form-group">
-                                    <button type="submit" className="btn btn-default">Submit Review</button>
-                                </div>
-                            </div>
-                            <div className="col-md-4">
-                                <aside className="user-rating">
-                                    <label>Value</label>
-                                    <figure className="rating active" data-name="value"></figure>
-                                </aside>
-                                <aside className="user-rating">
-                                    <label>Service</label>
-                                    <figure className="rating active" data-name="score"></figure>
-                                </aside>
                             </div>
                         </div>
                     </form>

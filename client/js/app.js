@@ -12,13 +12,19 @@ var MainInterface = React.createClass({
   },
   
   componentDidMount: function() {
-      fetch("/restaurants/" + $('#restaurant_id').val() + "/reviews.json")
+      fetch("/api/v1/restaurants/" + $('#restaurant_id').val() + "/reviews.json")
           .then( (response) => {
               return response.json() })   
                   .then( (json) => {
                       this.setState({ reviews: json });
                   });
   },
+  
+  handleSubmit: function(newReview) {
+        var newReviewState = this.state.reviews.concat(newReview);
+        this.setState({ reviews: newReviewState })
+  },
+
   
   render: function() {
     var reviewsState = this.state.reviews;
@@ -32,8 +38,13 @@ var MainInterface = React.createClass({
     
     return (
       <div>
-        { reviewsState }
-        <ReviewForm />
+        <section className="block" id="reviews">
+            <header className="clearfix">
+                <h2 className="pull-left">Reviews</h2>
+            </header>
+            { reviewsState }
+        </section>
+        <ReviewForm handleSubmit = { this.handleSubmit } />
       </div>
     )
   } 

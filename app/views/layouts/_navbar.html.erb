@@ -23,11 +23,11 @@
                 </ul>
                 <ul class="user-area">
                         <% if user_signed_in? %>
-                                <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>        
+                                <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete, style: "margin-right: 15px; font-size: 14px;"  %></li>        
                         <% else %>
                                 <li><%= link_to 'Sign In', new_user_session_path, style: "margin-right: 15px; font-size: 14px;"  %></li>
+                                <%= link_to "<strong>Register</strong>".html_safe , new_user_registration_path, class: "btn btn-default", style: "font-size: 14px;"  %>
                         <% end %>
-                        <%= link_to "<strong>Register</strong>".html_safe , new_user_registration_path, class: "btn btn-default", style: "font-size: 14px;"  %>
                 </ul>
                 </div>
         </nav>

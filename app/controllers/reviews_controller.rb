@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
   def index
     # @reviews = Review.all
     @reviews = Review.where(restaurant_id: @restaurant.id)
+    @review.user_id = User.where(user_id: @user_id)
   end
 
   # GET /reviews/1
