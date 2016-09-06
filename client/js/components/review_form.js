@@ -1,11 +1,13 @@
 var React = require('react');
 
 const ReviewForm = React.createClass({
-    getInitialState: function () {
-        return {value: null}; 
+    getInitialState: function() {
+        return({
+            
+        })
     },
     handleClick: function(event) {
-      event.preventDefault();
+        var form = document.getElementById('form-review');
         $.ajax({
             url: '/api/v1/restaurants/' + document.getElementById('restaurant_id').value + '/reviews',
             type: 'POST',
@@ -20,10 +22,11 @@ const ReviewForm = React.createClass({
                 jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
             },
             success: (review) => {
-               this.props.handleSubmit(review)
+               this.props.handleSubmit(review);
+               form.reset();
             },
-      });
-      this.setState({value: null}); 
+        });
+        event.preventDefault();
     },
     
     render: function() {
@@ -38,11 +41,11 @@ const ReviewForm = React.createClass({
                             <div className="col-md-12">
                                 <div className="form-group">
                                     <label htmlFor="form-review-email">Rating</label>
-                                    <input ref="rating" type="number" className="form-control" id="form-review-email" name="form-review-email" value={this.state.value} required=""/>
+                                    <input ref="rating" type="number" className="form-control" id="form-review-email" name="form-review-email" required=""/>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="form-review-message">Review</label>
-                                    <textarea ref="review" className="form-control" id="form-review-message" name="form-review-message"  rows="3" required=""></textarea>
+                                    <textarea ref="review" className="form-control" id="form-review-message" name="form-review-message" rows="3" required=""></textarea>
                                 </div>
                                 <div className="form-group">
                                     <button type="submit" className="btn btn-default" onClick={ this.handleClick }>Submit Review</button>
