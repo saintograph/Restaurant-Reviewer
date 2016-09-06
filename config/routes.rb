@@ -14,4 +14,6 @@ Rails.application.routes.draw do
     end
   end
   root 'restaurants#index'
+  get 'current_user' => "users#current_user"
 end
+

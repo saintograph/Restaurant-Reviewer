@@ -20,8 +20,9 @@ var MainInterface = React.createClass({
                   });
   },
   
-  handleSubmit: function(newReview) {
-        var newReviewState = this.state.reviews.concat(newReview);
+  handleSubmit: function(review) {
+        this.setState({ reviews: [] })
+        var newReviewState = this.state.reviews.concat(review);
         this.setState({ reviews: newReviewState })
   },
 
@@ -34,7 +35,7 @@ var MainInterface = React.createClass({
            singleReview = { review }
            />
       )
-    }.bind(this));
+    });
     
     return (
       <div>
