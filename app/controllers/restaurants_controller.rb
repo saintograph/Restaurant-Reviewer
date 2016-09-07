@@ -13,6 +13,11 @@ class RestaurantsController < ApplicationController
   def show
     @reviews = Review.where(restaurant_id: @restaurant.id)
     @restaurant = Restaurant.find(params[:id])
+    if @reviews.blank?
+        @avg_rating = 0
+    else
+        @avg_rating = @reviews.average(:rating)
+    end
   end
 
   # GET /restaurants/new

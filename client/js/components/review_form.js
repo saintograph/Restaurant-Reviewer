@@ -1,11 +1,18 @@
 var React = require('react');
+var StarRatingComponent = require('react-star-rating-component');
 
 const ReviewForm = React.createClass({
+
     getInitialState: function() {
-        return({
-            
+        return ({
+            rating: 1
         })
     },
+
+    onStarClick: function(nextValue, prevValue, name) {
+        this.setState({rating: nextValue});
+    },
+
     handleClick: function(event) {
         var form = document.getElementById('form-review');
         $.ajax({
@@ -13,7 +20,7 @@ const ReviewForm = React.createClass({
             type: 'POST',
             data: {
                 review: { 
-                    rating : this.refs.rating.value,
+                    rating : this.state.rating,
                     comment : this.refs.review.value,
                     restaurant_id : document.getElementById('restaurant_id').value
                 }
@@ -24,12 +31,14 @@ const ReviewForm = React.createClass({
             success: (review) => {
                this.props.handleSubmit(review);
                form.reset();
+               this.setState({ rating: 1 });
             },
         });
         event.preventDefault();
     },
     
     render: function() {
+        const { rating } = this.state;
         return (
             <div>
                 <section>
@@ -40,8 +49,13 @@ const ReviewForm = React.createClass({
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="form-group">
-                                    <label htmlFor="form-review-email">Rating</label>
-                                    <input ref="rating" type="number" className="form-control" id="form-review-email" name="form-review-email" required=""/>
+                                    <h2>Your rating: {this.state.rating}</h2>
+                                    <StarRatingComponent 
+                                        name="rating" 
+                                        starCount={5}
+                                        value={this.state.rating}
+                                        onStarClick={this.onStarClick}
+                                    />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="form-review-message">Review</label>

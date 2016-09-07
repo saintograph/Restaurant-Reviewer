@@ -2,8 +2,10 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var ReviewForm = require('./components/review_form');
 var Reviews = require('./components/reviews');
+var StarRatingComponent = require('react-star-rating-component');
 
-var MainInterface = React.createClass({
+
+const MainInterface = React.createClass({
     
   getInitialState: function() {
       return({
@@ -37,6 +39,8 @@ var MainInterface = React.createClass({
       )
     });
     
+    var sign_in = (<div><h3>Please sign in or register to leave a review</h3></div>);
+    
     return (
       <div>
         <section className="block" id="reviews">
@@ -45,10 +49,29 @@ var MainInterface = React.createClass({
             </header>
             { reviewsState }
         </section>
-        <ReviewForm handleSubmit = { this.handleSubmit } />
+        {document.getElementById('current_user').value == "" ? sign_in : <ReviewForm handleSubmit = { this.handleSubmit } />}
       </div>
     )
   } 
 }); 
 
 ReactDOM.render(<MainInterface />, document.getElementById('app'));
+
+
+const AverageRating = React.createClass({
+  
+    render: function() {
+        return (
+            <div>
+            <StarRatingComponent 
+                name="avg_rating" 
+                starCount={5}
+                editing={false}
+                value={Number(document.getElementById('avg_rating').value)}
+            />
+            </div>
+        )
+    } 
+}); 
+
+ReactDOM.render(<AverageRating />, document.getElementById('average_rating'));

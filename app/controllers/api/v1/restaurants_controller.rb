@@ -4,6 +4,6 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
    end
    def show
        @restaurant - Restaurant.find(params[:id])
-       respond_with Review.where(restaurant_id: @restaurant.id).order('created_at')
+       respond_with @reviews
    end
 end

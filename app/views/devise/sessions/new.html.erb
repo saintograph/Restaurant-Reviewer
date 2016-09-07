@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= devise_error_messages! %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 	<section class="container">
 		<div class="block">
@@ -12,11 +12,11 @@
 					<form role="form" id="form-sign-in-account" method="post" action="http://themestarz.net/html/spotter/sign-in.html?">
 						<div class="form-group">
 							<%= f.label :email, for: "form-sign-in-email" %>
-							<%= f.email_field :email, autofocus: true, class:"form-control", id: "form-sign-in-email", name: "form-sign-in-email", required: true %>
+							<%= f.email_field :email, autofocus: true, class:"form-control", id: "form-sign-in-email", required: true %>
 						</div>
 						<div class="form-group">
 							<%= f.label :password, for: "form-sign-in-password" %>
-							<%= f.password_field :password, autocomplete: "off", class: "form-control", id: "form-sign-in-password", name: "form-sign-in-password", required: true %>
+							<%= f.password_field :password, autocomplete: "off", class: "form-control", id: "form-sign-in-password", required: true %>
 						</div>
 						<div class="form-group clearfix">
 							<%= f.submit "Sign In", class: "btn pull-right btn-default", id: "account-submit"  %>
