@@ -1,15 +1,18 @@
 <div class="header">
         <div class="wrapper">
-        <div class="brand">
+        <div class="brand col-xs-12">
                 <%= link_to root_path do %>
+                        <div style="text-align: center;">
                         <%= image_tag('logo-restaurants.png') %>
+                        </div>
                 <% end %>
         </div>
         
         <nav class="navigation-items">
                 <div class="wrapper">
                 <ul class="main-navigation navigation-top-header">
-                        <div class="btn-group">
+                        <div class="btn-group col-xs-12">
+                            <div style="text-align: center;">
                                 <button type="button" class="btn btn-default dropdown-toggle" style="float: left;" data-toggle="dropdown" aria-haspopup="true">
                                 Cuisine  <span class="caret"></span>
                                 </button>
@@ -19,9 +22,11 @@
                                         <li><a href="#"><i><%= image_tag('japanese-food.png', height: '15px') %></i>Sushi Bar</a></li>
                                         <li><a href="#"><i><%= image_tag('barbecue.png', height: '15px') %></i>BBQ Restaurant</a></li>
                                 </ul>
+                            </div>
                         </div>
                 </ul>
-                <ul class="user-area">
+                <ul class="user-area col-xs-12">
+                <div style="text-align: center;">
                         <% if user_signed_in? %>
                                 <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete, style: "margin-right: 15px; font-size: 14px;"  %></li>        
                         <% else %>
@@ -29,6 +34,7 @@
                                 <%= link_to "<strong>Register</strong>".html_safe , new_user_registration_path, class: "btn btn-default", style: "font-size: 14px;"  %>
                         <% end %>
                 </ul>
+                </div>
                 </div>
         </nav>
         </div>

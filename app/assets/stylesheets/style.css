@@ -260,12 +260,14 @@ ul.bullets li a:hover {
   width: 100%;
   overflow: hidden;
 }
+
 .background img {
-  height: auto;
-  width: 100%;
+  height: 100%;
+  width: auto;
   max-width: inherit;
   position: relative;
 }
+
 .background.background-visible {
   overflow: visible;
 }
@@ -6589,7 +6591,7 @@ body.navigation-top-header .header .wrapper .toggle-navigation {
   }
 
   .header .wrapper .navigation-items .wrapper .user-area {
-    display: none;
+    /*display: none;*/
   }
 
   .map-canvas {
