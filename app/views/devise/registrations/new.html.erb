@@ -12,25 +12,29 @@
                     <form>
                         <div class="form-group">
                             <%= f.label :first_name, for: "form-register-full-name" %>
-                            <%= f.text_field :first_name, autofocus: true, class:"form-control", id:"form-register-full-name", required: true %>
+                            <%= f.text_field :first_name, autofocus: true, class:"form-control", id:"form-register-full-name", onBlur:"validate()", required: true %>
+                            <p id="confirmName"><small>Please enter a name</small></p>
                         </div>
                         <div class="form-group">
                             <%= f.label :email, class: "form-register-email" %>
-                            <%= f.email_field :email, class:"form-control", id:"form-register-email", required: true %>
+                            <%= f.email_field :email, class:"form-control", id:"form-register-email", onBlur:"validate()", required: true %>
+                            <p id="testEmail"><small>Please enter a valid email address for your account</small></p>
                         </div>
                         <div class="form-group">
                             <%= f.label :password, for:"form-register-password" %>
                             <% if @minimum_password_length %>
                             <em>(<%= @minimum_password_length %> characters minimum)</em>
                             <% end %>
-                            <%= f.password_field :password, autocomplete: "off", class: "form-control", id:"form-register-password", required: true %>
+                            <%= f.password_field :password, autocomplete: "off", class: "form-control", id:"form-register-password", onBlur:"validate()", required: true %>
+                            <p id="testPassword"><small>Please enter a secure password</small></p>
                         </div>
                         <div class="form-group">
                             <%= f.label :password_confirmation, for: "form-register-confirm-password" %>
-                            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", id: "form-register-confirm-password", required: true %>
+                            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", id: "form-register-confirm-password", onBlur:"validate()", required: true %>
+                            <p id="confirmPassword2"><small>Please confirm your password</small></p>
                         </div>
                         <div class="form-group clearfix">
-                            <%= f.submit "Create your account", class: "btn pull-right btn-default" %>
+                            <%= f.submit "Create your account", id:"register_button", class: "btn pull-right btn-default", disabled: true %>
                         </div>
                     </form>
                     <hr>
