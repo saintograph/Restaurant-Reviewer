@@ -19,3 +19,7 @@
  *= require font-awesome
  *= require style.css
   */
+
+.navbar {
+  margin-bottom: 0px;
+}

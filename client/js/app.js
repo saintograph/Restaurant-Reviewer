@@ -14,7 +14,7 @@ const MainInterface = React.createClass({
   },
   
   componentDidMount: function() {
-      fetch("/api/v1/restaurants/" + $('#restaurant_id').val() + "/reviews.json")
+      fetch("/api/v1/restaurants/" + document.getElementById('restaurant_id').value + "/reviews.json")
           .then( (response) => {
               return response.json() })   
                   .then( (json) => {
@@ -23,14 +23,14 @@ const MainInterface = React.createClass({
   },
   
   handleSubmit: function(review) {
-        this.setState({ reviews: [] })
-        var newReviewState = this.state.reviews.concat(review);
+        this.setState({reviews: []})
+        let newReviewState = this.state.reviews.concat(review);
         this.setState({ reviews: newReviewState })
   },
 
   
   render: function() {
-    var reviewsState = this.state.reviews;
+    let reviewsState = this.state.reviews;
     reviewsState = reviewsState.map(function(review, index) {  
       return (
           <Reviews key = { index }
@@ -39,7 +39,7 @@ const MainInterface = React.createClass({
       )
     });
     
-    var sign_in = (<div><h3>Please sign in or register to leave a review</h3></div>);
+    const sign_in = (<div><h3>Please sign in or register to leave a review</h3></div>);
     
     return (
       <div>
