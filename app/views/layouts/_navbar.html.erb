@@ -7,25 +7,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-        <%= link_to root_path do %>
-                <div style="text-align: center;">
-                        <%= image_tag('logo-restaurants.png', alt: "site_logo") %>
-                </div>
-        <% end %>
+      <%= link_to root_path do %>
+              <div style="text-align: center;">
+                      <%= image_tag('logo-restaurants.png', alt: "site_logo") %>
+              </div>
+      <% end %>
     </div>
-
+    <%= render 'categories/all' %>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu" aria-expanded="false">
-                        <li><a href="#"><i><%= image_tag('restaurant.png', height: '15px') %></i>Restaurant</a></li>
-                        <li><a href="#"><i><%= image_tag('restaurant_steakhouse.png', height: '15px') %></i>Steak House</a></li>
-                        <li><a href="#"><i><%= image_tag('japanese-food.png', height: '15px') %></i>Sushi Bar</a></li>
-                        <li><a href="#"><i><%= image_tag('barbecue.png', height: '15px') %></i>BBQ Restaurant</a></li>
-                </ul>
-        </li>
-      </ul>
       <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
                 <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete, style: "margin-right: 15px; font-size: 14px;"  %></li>        

@@ -16,10 +16,14 @@
  *= require jquery.mCustomScrollbar
  *= require jquery.nouislider.min
  *= require jquery.ui.timepicker
- *= require font-awesome
  *= require style.css
   */
 
 .navbar {
   margin-bottom: 0px;
 }
+
+.navbar-item {
+  font-size: 14px;
+}
+

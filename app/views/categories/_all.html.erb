@@ -1,0 +1,9 @@
+<ul class="nav navbar-nav">
+    <% @categories.each do |category| %>
+        <li class='navbar-item'>
+            <%= link_to(category) do %>
+                <%= category.name %>
+            <% end %>
+        </li>
+    <% end %>
+</ul>

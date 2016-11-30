@@ -54,3 +54,5 @@ gem 'guard-livereload', '~> 2.5', require: false
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'responders'
+gem 'font-awesome-rails'
+gem 'font-awesome-sass-rails'

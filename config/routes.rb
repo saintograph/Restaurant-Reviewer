@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :restaurants do
     resources :reviews#, except: [:show, :index]
+  end
+  resources :categories do
+    resources :restaurants do
+      resources :reviews#, except: [:show, :index]
+    end
   end  
+  resources :categories  
   namespace :api do
     namespace :v1 do
       resources :restaurants do
@@ -15,5 +21,6 @@ Rails.application.routes.draw do
   end
   root 'restaurants#index'
   get 'current_user' => "users#current_user"
+  get 'categories/show_categories' => 'categories#show_categories'
 end
 

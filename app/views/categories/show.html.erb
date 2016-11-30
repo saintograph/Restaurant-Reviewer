@@ -1,10 +1,9 @@
 <div class="page-homepage">
-<%= render 'layouts/hero' %>
 <section id="featured" class="block equal-height">
   <div class="container">
-    <header><h2>Recently Updated</h2></header>
+    <header><h2><%= @category.name  %></h2></header>
     <div class="row">
-      <% @recently_posted.each do |restaurant| %>
+      <% @restaurants.each do |restaurant| %>
         <div class="col-md-3 col-sm-3">
           <div class="item">
             <div class="image">
@@ -17,7 +16,7 @@
                           </div>
                       </div>
                   </div>
-                  <img src="<%= restaurant.main_image %>" alt="<%= "image of " + restaurant.name + " restaurant" %>">
+                  <img src="<%= restaurant.main_image %>" alt="">
                 <% end %>
               </div>
               <div class="wrapper">
@@ -36,8 +35,8 @@
       <% end %>  
     </div>
   </div>
-  <div class="background opacity-5" style="background-color: black;">
+  <div class="background opacity-5">
+      <%= image_tag('bg2.jpg', style: "width: 1600px; height:900px;") %>
   </div>
 </section>
-<%= render 'layouts/popular' %>
 </div>
