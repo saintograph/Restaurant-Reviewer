@@ -1,17 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Please ensure Rails 5 and Ruby 2.2.2 is installed on your machine.
 
-Things you may want to cover:
+Steps to get this aplication working :
 
-* Ruby version
+* $ git clone https://github.com/winfredselwyn/Restaurant-Reviewer.git
 
-* System dependencies
+* $ cd Restaurant-Reviewer
 
-* Configuration
+* $ bundle install
 
-* Database creation
+* $ gulp js
 
 * Database initialization
 
@@ -22,3 +21,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Gulp bundles all JS/React files to 

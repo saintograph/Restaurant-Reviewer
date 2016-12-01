@@ -15,9 +15,9 @@ const MainInterface = React.createClass({
   
   componentDidMount: function() {
       fetch("/api/v1/restaurants/" + document.getElementById('restaurant_id').value + "/reviews.json")
-          .then( (response) => {
+          .then( function(response) {
               return response.json() })   
-                  .then( (json) => {
+                  .then( function(json) {
                       this.setState({ reviews: json });
                   });
   },

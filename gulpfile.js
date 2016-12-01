@@ -1,6 +1,8 @@
 var gulp = require('gulp'),
     browserify = require('gulp-browserify'),
-    webserver = require('gulp-webserver');
+    webserver = require('gulp-webserver'),
+    minify = require('gulp-minifier'),
+    uglify = require('gulp-uglify');
     
 var src = './client',
     app = './app/assets/';
@@ -8,13 +10,13 @@ var src = './client',
 gulp.task('js', function() {
   return gulp.src( src + '/js/app.js' )
     .pipe(browserify({
-      transform: 'reactify',
+      transform: ['reactify', 'babelify'],
       debug: true
     }))
     .on('error', function (err) {
       console.error('Error!', err.message);
     })
-    .pipe(gulp.dest(app + '/javascripts'));
+    .pipe(gulp.dest(app + '/javascripts'))
 });
 
 gulp.task('watch', function() {
