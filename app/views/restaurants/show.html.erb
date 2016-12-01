@@ -5,7 +5,6 @@
 <div class="page-subpage page-item-detail">
     <section class="container">
         <div class="row">
-            <!--Item Detail Content-->
             <div class="col-md-9">
                 <section class="block" id="main-content">
                     <header class="page-title">
@@ -17,15 +16,13 @@
                             <div class="type">
                                 <i><%= image_tag('restaurant.png')%></i>
                                 <span>Restaurant</span>
-                            </div>
+                            </div>  
                         </div>
                     </header>
                     <div class="row">
-                        <!--Detail Sidebar-->
                         <aside class="col-md-4 col-sm-4" id="detail-sidebar">
-                            <!--Contact-->
                             <section>
-                                <header><h3>Contact</h3></header>
+                                <header><h2>Contact</h2></header>
                                 <address>
                                     <div><%= @restaurant.name %></div>
                                     <div><%= @restaurant.address %></div>
@@ -40,28 +37,22 @@
                                         </div>
                                         <div class="info">
                                             <i class="fa fa-globe"></i>
-                                            <a href="#"><%= @restaurant.website %></a>
+                                            <a role="link" href="<%= @restaurant.website %><"><%= @restaurant.website %></a>
                                         </div>
                                     </figure>
                                 </address>
                             </section>
-                            <!--end Contact-->
-                            <!--Rating-->
                             <section class="clearfix">
                                 <header class="pull-left"><a href="#reviews" class="roll"><h3>Average Rating</h3></a></header></br></br>
                                 <div id="average_rating"></div>
                             </section>
-                            <!--end Rating-->
                         </aside>
-                        <!--end Detail Sidebar-->
-                        <!--Content-->
                         <div class="col-md-8 col-sm-8">
                             <section>
                                 <article class="item-gallery">
-                                   <img src="<%= @restaurant.main_image %>" alt="">
+                                   <img src="<%= @restaurant.main_image %>" alt="photo of <%= @restaurant.name %> restaurant">
                                 </article>
-                                <!-- /.item-gallery -->
-                                <article class="block">
+                                <div class="block">
                                     <header><h2>Description</h2></header>
                                     <p>
                                         Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam.
@@ -74,8 +65,7 @@
                                         fermentum. Integer eget tincidunt est, in imperdiet risus.
                                         Morbi sit amet urna purus.
                                     </p>
-                                </article>
-                                <!-- /.block -->
+                                </div>
                                 <article class="block">
                                     <header><h2>Daily Menu</h2></header>
                                     <div class="list-slider owl-carousel">
@@ -90,7 +80,6 @@
                                                 </div>
                                                 <div class="right">$4.50</div>
                                             </div>
-                                            <!-- /.list-item -->
                                             <div class="list-item">
                                                 <div class="left">
                                                     <h4>Mushroom ragout</h4>
@@ -98,7 +87,6 @@
                                                 </div>
                                                 <div class="right">$3.60</div>
                                             </div>
-                                            <!-- /.list-item -->
                                             <div class="list-item">
                                                 <div class="left">
                                                     <h4>Nice salad with tuna, beans and hard-boiled egg</h4>
@@ -106,9 +94,7 @@
                                                 </div>
                                                 <div class="right">$1.20</div>
                                             </div>
-                                            <!-- /.list-item -->
                                         </div>
-                                        <!-- /.slide -->
                                         </br>
                                         <div class="slide">
                                             <header>
@@ -121,7 +107,6 @@
                                                 </div>
                                                 <div class="right">$4.50</div>
                                             </div>
-                                            <!-- /.list-item -->
                                             <div class="list-item">
                                                 <div class="left">
                                                     <h4>Mushroom ragout</h4>
@@ -129,7 +114,6 @@
                                                 </div>
                                                 <div class="right">$3.60</div>
                                             </div>
-                                            <!-- /.list-item -->
                                             <div class="list-item">
                                                 <div class="left">
                                                     <h4>Nice salad with tuna, beans and hard-boiled egg</h4>
@@ -137,34 +121,10 @@
                                                 </div>
                                                 <div class="right">$1.20</div>
                                             </div>
-                                            <!-- /.list-item -->
                                         </div>
-                                        <!-- /.slide -->
                                     </div>
-                                    <!-- /.list-slider -->
                                 </article>
-                                <!-- /.block -->
-                                <article class="block">
-                                    <header><h2>Features</h2></header>
-                                    <ul class="bullets">
-                                        <li>Free Parking</li>
-                                        <li>Cards Accepted</li>
-                                        <li>Wi-Fi</li>
-                                        <li>Air Condition</li>
-                                        <li>Reservations</li>
-                                        <li>Teambuildings</li>
-                                        <li>Places to seat</li>
-                                        <li>Winery</li>
-                                        <li>Draft Beer</li>
-                                        <li>LCD</li>
-                                        <li>Saloon</li>
-                                        <li>Free Access</li>
-                                        <li>Terrace</li>
-                                        <li>Minigolf</li>
-                                    </ul>
-                                </article>
-                                <!-- /.block -->
-                                <article class="block">
+                                 <article class="block">
                                     <header><h2>Opening Hours</h2></header>
                                     <dl class="lines">
                                         <dt>Monday</dt>
@@ -184,14 +144,9 @@
                             </section>
                             <div class="" id="app"></div>
                         </div>
-                        <!-- /.col-md-8-->
                     </div>
-                    <!-- /.row -->
                 </section>
-                <!-- /#main-content-->
             </div>
-            <!-- /.col-md-8-->
-            <!--Sidebar-->
             <div class="col-md-3">
                 <aside id="sidebar">
                     <section>
@@ -210,7 +165,6 @@
                                 </div>
                             </div>
                         </a>
-                        <!--/.item-horizontal small-->
                         <a href="item-detail.html" class="item-horizontal small">
                             <h3>Sri Nirvana Maju</h3>
                             <figure>Jalan Telawi 3, Bangsar Baru</figure>
@@ -225,7 +179,6 @@
                                 </div>
                             </div>
                         </a>
-                        <!--/.item-horizontal small-->
                         <a href="item-detail.html" class="item-horizontal small">
                             <h3>Wonder Mama</h3>
                             <figure>20A, Jalan Kampung Pandan</figure>
@@ -240,7 +193,6 @@
                                 </div>
                             </div>
                         </a>
-                        <!--/.item-horizontal small-->
                     </section>
                     <section>
                         <header><h2>Categories</h2></header>
@@ -256,11 +208,7 @@
                     </section>
                     
                 </aside>
-                <!-- /#sidebar-->
             </div>
-            <!-- /.col-md-3-->
-            <!--end Sidebar-->
-        </div><!-- /.row-->
+        </div>
     </section>
-    <!-- /.container-->
 </div>

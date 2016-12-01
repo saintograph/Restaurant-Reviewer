@@ -16,7 +16,7 @@
                             <p id="confirmName"><small>Please enter a name</small></p>
                         </div>
                         <div class="form-group">
-                            <%= f.label :email, class: "form-register-email" %>
+                            <%= f.label :email, for: "form-register-email" %>
                             <%= f.email_field :email, class:"form-control", id:"form-register-email", onBlur:"validate()", required: true %>
                             <p id="testEmail"><small>Please enter a valid email address for your account</small></p>
                         </div>
@@ -30,7 +30,7 @@
                         </div>
                         <div class="form-group">
                             <%= f.label :password_confirmation, for: "form-register-confirm-password" %>
-                            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", id: "form-register-confirm-password", onBlur:"validate()", required: true %>
+                            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", id: "form-register-confirm-password", onkeyup:"validate()", required: true %>
                             <p id="confirmPassword2"><small>Please confirm your password</small></p>
                         </div>
                         <div class="form-group clearfix">

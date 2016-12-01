@@ -13,14 +13,14 @@ const AverageRating = React.createClass({
   
     render: function() {
         return (
-            <div>
-            <StarRatingComponent 
-                name="avg_rating" 
-                starCount={5}
-                editing={false}
-                value={rating}
-                onStarClick={this.onStarClick.bind(this)}
-            />
+            <div role="rating">
+                <StarRatingComponent 
+                    name="avg_rating" 
+                    starCount={5}
+                    editing={false}
+                    value={rating}
+                    onStarClick={this.onStarClick.bind(this)}
+                />
             </div>
         )
     } 

@@ -16,6 +16,7 @@
  *= require jquery.mCustomScrollbar
  *= require jquery.nouislider.min
  *= require jquery.ui.timepicker
+ *= require starability.min.css
  *= require style.css
   */
 
@@ -26,4 +27,3 @@
 .navbar-item {
   font-size: 14px;
 }
-
