@@ -10,16 +10,17 @@ Steps to get this aplication working :
 
 * $ bundle install
 
+* $ npm install
+
 * $ gulp js
 
-* Database initialization
+* $ rails s
 
-* How to run the test suite
+* navigate to localhost:3000
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+```$ bundle install``` installs the needed Ruby on Rails gems locally.
+```$ npm install``` installs npm packages locally.
+Running ```$ gulp js``` bundles all JS/React files to app/assets/javascript. 
+```$ rails s``` start the Ruby on Rails server
 
-* ...
-
-Gulp bundles all JS/React files to 

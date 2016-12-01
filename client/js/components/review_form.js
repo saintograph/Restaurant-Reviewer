@@ -28,7 +28,7 @@ const ReviewForm = React.createClass({
             beforeSend: function(jqXHR, settings) {
                 jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
             },
-            success: function (review) {
+            success: (review) => {
                this.props.handleSubmit(review);
                form.reset();
                this.setState({ rating: 1 });

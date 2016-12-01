@@ -2,7 +2,9 @@ var gulp = require('gulp'),
     browserify = require('gulp-browserify'),
     webserver = require('gulp-webserver'),
     minify = require('gulp-minifier'),
-    uglify = require('gulp-uglify');
+    uglify = require('gulp-uglify')
+    streamify = require('gulp-streamify')
+    babel = require('gulp-babel');
     
 var src = './client',
     app = './app/assets/';
@@ -16,6 +18,8 @@ gulp.task('js', function() {
     .on('error', function (err) {
       console.error('Error!', err.message);
     })
+    .pipe(babel({presets: ['es2015']}))
+    .pipe(streamify(uglify()))
     .pipe(gulp.dest(app + '/javascripts'))
 });
 
