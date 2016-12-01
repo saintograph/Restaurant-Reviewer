@@ -20,7 +20,10 @@ Steps to get this aplication working :
 
 
 ```$ bundle install``` installs the needed Ruby on Rails gems locally.
+
 ```$ npm install``` installs npm packages locally.
+
 Running ```$ gulp js``` bundles all JS/React files to app/assets/javascript. 
+
 ```$ rails s``` start the Ruby on Rails server
 
