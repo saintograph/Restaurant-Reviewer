@@ -14,6 +14,8 @@ Steps to get this aplication working :
 
 * $ gulp js
 
+* $ RAILS_ENV=production bundle exec rails assets:precompile --trace
+
 * $ rails s
 
 * navigate to localhost:3000
