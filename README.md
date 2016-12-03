@@ -1,6 +1,6 @@
 # README
 
-Please ensure Rails 5 and Ruby 2.2.2 is installed on your machine.
+Please ensure Rails 5 and Ruby 2.2.2++ are installed on your machine.
 
 Steps to get this aplication working :
 
