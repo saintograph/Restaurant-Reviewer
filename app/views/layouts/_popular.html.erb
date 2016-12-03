@@ -5,11 +5,12 @@
                 <section class="equal-height">
                     <header><h2>Popular today</h2></header>
                     <div class="row">
+                        <% @popular.each do |restaurant| %>
                         <div class="col-md-4 col-sm-4">
                             <div class="item ">
                                 <div class="image">
                                     <div class="quick-view"><i class="fa fa-eye"></i><span>Quick View</span></div>
-                                    <a href="item-detail.html">
+                                    <%= link_to(restaurant) do %>
                                         <div class="overlay">
                                             <div class="inner">
                                                 <div class="content">
@@ -18,12 +19,13 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <%= image_tag('11.jpg') %>
-                                    </a>
+                                        <img src="<%= restaurant.main_image %>" alt="">
+                                    <% end %>
                                 </div>
                                 <div class="wrapper">
-                                    <a href="item-detail.html"><h3>Kukus Stim Habis!</h3></a>
-                                    <figure>Jalan Tun Mohd Fuad</figure>
+                                    <%= link_to(restaurant) do %>
+                                        <h3><%= restaurant.name%></h3>
+                                    <% end %>
                                     <div class="info">
                                         <div class="type">
                                             <i><%= image_tag('restaurant.png') %></i>
@@ -34,205 +36,30 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-4">
-                            <div class="item ">
-                                <div class="image">
-                                    <div class="quick-view"><i class="fa fa-eye"></i><span>Quick View</span></div>
-                                    <a href="item-detail.html">
-                                        <div class="overlay">
-                                            <div class="inner">
-                                                <div class="content">
-                                                    <h3>Description</h3>
-                                                    <p>Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <%= image_tag('4.jpg') %>
-                                    </a>
-                                </div>
-                                <div class="wrapper">
-                                    <a href="item-detail.html"><h3>Podgy & The Banker</h3></a>
-                                    <figure>Jalan Kiara 5</figure>
-                                    <div class="info">
-                                        <div class="type">
-                                            <i><%= image_tag('restaurant_steakhouse.png') %></i>
-                                            <span>Steak House</span>
-                                        </div>
-                                        <div class="rating" data-rating="4"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4">
-                            <div class="item ">
-                                <div class="image">
-                                    <div class="quick-view"><i class="fa fa-eye"></i><span>Quick View</span></div>
-                                    <a href="item-detail.html">
-                                        <div class="overlay">
-                                            <div class="inner">
-                                                <div class="content">
-                                                    <h3>Description</h3>
-                                                    <p>Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-specific">
-                                            <span>Menu from: $9.00</span>
-                                        </div>
-                                        <%= image_tag('8.jpg') %>
-                                    </a>
-                                </div>
-                                <div class="wrapper">
-                                    <a href="item-detail.html"><h3>Dancing Fish</h3></a>
-                                    <figure>285, Jalan Maarof</figure>
-                                    <div class="info">
-                                        <div class="type">
-                                            <i><%= image_tag('barbecue.png') %></i>
-                                            <span>BBQ Restaurant</span>
-                                        </div>
-                                        <div class="rating" data-rating="3"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-4">
-                            <div class="item ">
-                                <div class="image">
-                                    <div class="quick-view"><i class="fa fa-eye"></i><span>Quick View</span></div>
-                                    <a href="item-detail.html">
-                                        <div class="overlay">
-                                            <div class="inner">
-                                                <div class="content">
-                                                    <h3>Description</h3>
-                                                    <p>Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <%= image_tag('12.jpg') %>
-                                    </a>
-                                </div>
-                                <div class="wrapper">
-                                    <a href="item-detail.html"><h3>Naughty Nuri’s</h3></a>
-                                    <figure>2, Jalan Sri Hartamas 22</figure>
-                                    <div class="info">
-                                        <div class="type">
-                                            <i><%= image_tag('fishchips.png') %></i>
-                                            <span>Sushi Bar</span>
-                                        </div>
-                                        <div class="rating" data-rating="3"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4">
-                            <div class="item ">
-                                <div class="image">
-                                    <div class="quick-view"><i class="fa fa-eye"></i><span>Quick View</span></div>
-                                    <a href="item-detail.html">
-                                        <div class="overlay">
-                                            <div class="inner">
-                                                <div class="content">
-                                                    <h3>Description</h3>
-                                                    <p>Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <%= image_tag('4.jpg') %>
-                                    </a>
-                                </div>
-                                <div class="wrapper">
-                                    <a href="item-detail.html"><h3>Din Tai Fung</h3></a>
-                                    <figure>168 Jalan Bukit Bintang</figure>
-                                    <div class="info">
-                                        <div class="type">
-                                            <i><%= image_tag('restaurant.png') %></i>
-                                            <span>Restaurant</span>
-                                        </div>
-                                        <div class="rating" data-rating="4"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4">
-                            <div class="item ">
-                                <div class="image">
-                                    <div class="quick-view" id="10"><i class="fa fa-eye"></i><span>Quick View</span></div>
-                                    <a href="item-detail.html">
-                                        <div class="overlay">
-                                            <div class="inner">
-                                                <div class="content">
-                                                    <h3>Description</h3>
-                                                    <p>Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <%= image_tag('6.jpg') %>
-                                    </a>
-                                </div>
-                                <div class="wrapper">
-                                    <a href="item-detail.html"><h3>Ippudo</h3></a>
-                                    <figure>Jalan Bukit Bintang</figure>
-                                    <div class="info">
-                                        <div class="type">
-                                            <i><%= image_tag('restaurant_steakhouse.png') %></i>
-                                            <span>Steak House</span>
-                                        </div>
-                                        <div class="rating" data-rating="4"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <% end %>
                     </div>
                 </section>
-
             </div>
             <div class="col-md-3 col-sm-3">
                 <aside id="sidebar">
                     <section>
                         <header><h2>New Places</h2></header>
-                        <a href="item-detail.html" class="item-horizontal small">
-                            <h3>Nutmeg</h3>
-                            <figure>2 Jalan Telawi 1</figure>
-                            <div class="wrapper">
-                                <div class="image"><%= image_tag('1.jpg') %></div>
-                                <div class="info">
-                                    <div class="type">
-                                        <i><%= image_tag('restaurant.png') %></i>
-                                        <span>Restaurant</span>
+                        <% @recently_created.each do |restaurant| %>
+                            <%= link_to(restaurant,  class: "item-horizontal small") do %>
+                                <h3><%= restaurant.name %></h3>
+                                <figure><%= restaurant.address %></figure>
+                                <div class="wrapper">
+                                    <div class="image"><img src="<%= restaurant.main_image %>" alt="image of <%= restaurant.name %> restaurant"></div>
+                                    <div class="info">
+                                        <div class="type">
+                                            <i><%= image_tag('restaurant.png') %></i>
+                                            <span>Restaurant</span>
+                                        </div>
+                                        <div class="rating" data-rating="4"></div>
                                     </div>
-                                    <div class="rating" data-rating="4"></div>
                                 </div>
-                            </div>
-                        </a>
-                        <a href="item-detail.html" class="item-horizontal small">
-                            <h3>Opium</h3>
-                            <figure>Changkat Bukit Bintang</figure>
-                            <div class="wrapper">
-                                <div class="image"><%= image_tag('2.jpg') %></div>
-                                <div class="info">
-                                    <div class="type">
-                                        <i><%= image_tag('restaurant.png') %></i>
-                                        <span>Restaurant</span>
-                                    </div>
-                                    <div class="rating" data-rating="3"></div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="item-detail.html" class="item-horizontal small">
-                            <h3>Edo Ichi</h3>
-                            <figure>Jalan Dutamas 1</figure>
-                            <div class="wrapper">
-                                <div class="image"><%= image_tag('3.jpg') %></div>
-                                <div class="info">
-                                    <div class="type">
-                                        <i><%= image_tag('restaurant.png') %></i>
-                                        <span>Restaurant</span>
-                                    </div>
-                                    <div class="rating" data-rating="5"></div>
-                                </div>
-                            </div>
-                        </a>
+                            <% end %>
+                        <% end %>                                                              
                     </section>
                 </aside>
             </div>

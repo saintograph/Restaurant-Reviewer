@@ -6,6 +6,9 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
     @recently_posted = Restaurant.order("created_at").limit(4)
+    @recently_created = Restaurant.order("updated_at").limit(3)
+    @popular = Restaurant.order("updated_at").limit(6)
+    @recently_commented = Restaurant.includes(:reviews).order("created_at").limit(2).offset(1)
     @categories = Category.all
   end
 
@@ -14,6 +17,8 @@ class RestaurantsController < ApplicationController
   def show
     @reviews = Review.where(restaurant_id: @restaurant.id)
     @restaurant = Restaurant.find(params[:id])
+    @recently_created = Restaurant.order("updated_at").limit(3)
+    @recently_commented = Restaurant.includes(:reviews).order("created_at").limit(2).offset(1)
     @categories = Category.all
     if @reviews.blank?
         @avg_rating = 0

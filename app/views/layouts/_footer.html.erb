@@ -3,69 +3,48 @@
         <div class="footer-top">
             <div class="container">
                 <div class="row">
+                    <% if controller.controller_name != "sessions" && controller.controller_name != 'registrations' %>
                     <div class="col-md-4 col-sm-4">
                         <section>
                             <h2>New Items</h2>
-                            <a href="item-detail.html" class="item-horizontal small">
-                                <h3>Cantaloupe</h3>
-                                <figure>Level 23a, The Troika KLCC</figure>
-                                <div class="wrapper">
-                                    <div class="image"><%= image_tag('1.jpg') %></div>
-                                    <div class="info">
-                                        <div class="type">
-                                            <i><%= image_tag('restaurant') %></i>
-                                            <span>Restaurant</span>
+                            <% @recently_created.limit(2).each do |restaurant| %>
+                                <%= link_to(restaurant,  class: "item-horizontal small") do %>
+                                    <h3><%= restaurant.name %></h3>
+                                    <figure><%= restaurant.address %></figure>
+                                    <div class="wrapper">
+                                        <div class="image"><img src="<%= restaurant.main_image %>" alt="image of <%= restaurant.name %> restaurant"></div>
+                                        <div class="info">
+                                            <div class="type">
+                                                <i><%= image_tag('restaurant.png') %></i>
+                                                <span>Restaurant</span>
+                                            </div>
+                                            <div class="rating" data-rating="4"></div>
                                         </div>
-                                        <div class="rating" data-rating="4"></div>
                                     </div>
-                                </div>
-                            </a>
-                            <a href="item-detail.html" class="item-horizontal small">
-                                <h3>Pinchos Tapas Bar</h3>
-                                <figure>18, Changkat Bukit Bintang</figure>
-                                <div class="wrapper">
-                                    <div class="image"><%= image_tag('2.jpg') %></div>
-                                    <div class="info">
-                                        <div class="type">
-                                            <i><%= image_tag('restaurant') %></i>
-                                            <span>Restaurant</span>
-                                        </div>
-                                        <div class="rating" data-rating="3"></div>
-                                    </div>
-                                </div>
-                            </a>
+                                <% end %>
+                            <% end %>   
                         </section>
                     </div>
                     <div class="col-md-4 col-sm-4">
                         <section>
                             <h2>Recent Reviews</h2>
-                            <a href="item-detail.html#reviews" class="review small">
-                                <h3>The Counter</h3>
-                                <figure>Lot 07.01, Pavilion</figure>
-                                <div class="info">
-                                    <div class="rating" data-rating="4"></div>
-                                    <div class="type">
-                                        <i><%= image_tag('restaurant') %></i>
-                                        <span>Restaurant</span>
+                            <% @recently_commented.each do |restaurant| %>
+                                <%= link_to(restaurant, class: "review small") do  %>
+                                    <h3><%= restaurant.name %></h3>
+                                    <figure><%= restaurant.address %></figure>
+                                    <div class="info">
+                                        <div class="rating" data-rating="5"></div>
+                                        <div class="type">
+                                            <i><%= image_tag('restaurant') %></i>
+                                            <span>Restaurant</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non suscipit felis, sed sagittis tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras ac placerat mauris.
-                                </p>
-                            <a href="item-detail.html#reviews" class="review small">
-                                <h3>Fahrenheit 600</h3>
-                                <figure>A4-G2-05, Solaris Dutamas</figure>
-                                <div class="info">
-                                    <div class="rating" data-rating="5"></div>
-                                    <div class="type">
-                                        <i><%= image_tag('restaurant') %></i>
-                                        <span>Restaurant</span>
-                                    </div>
-                                </div>
-                                <p>
-                                    Pellentesque mauris. Proin sit amet scelerisque risus. Donec semper semper erat ut mollis curabitur
-                                </p>
-                            </a>
+                                    <p>
+                                        <%= restaurant.description %>
+                                    </p>
+                                </a>
+                                <% end %>
+                            <% end %>
                         </section>
                     </div>
                     <div class="col-md-2 col-md-offset-2 col-sm-4">
@@ -99,6 +78,7 @@
                             <a href="contact.html" class="btn framed icon">Contact Us<i class="fa fa-angle-right"></i></a>
                         </section>
                     </div>
+                    <% end %>
                 </div>
             </div>
         </div>
